@@ -2,7 +2,7 @@
     Ari Yonaty
     ECE 1310
     3.21.2019
-    Exercise 86: Student Scores Structure 
+    Exercise 86: Student Scores Structure
  */
 
 #include <iostream>
@@ -21,6 +21,8 @@ int main()
 
     StudentScores stdScores[20];
 
+    // interate thru arrays score and id and copy to struct stdScores
+    //      as well as add to the sum of scores simulateneuously
     double sum = 0.0;
     for (int i = 0; i < 20; i++)
     {
@@ -28,9 +30,12 @@ int main()
         stdScores[i].ID = id[i];
         sum += stdScores[i].score;
     }
+
+    // calulcate size of array and divide sum by it to get averag
     int size = sizeof(stdScores) / sizeof(*stdScores);
     std::cout << "Average Score: " << sum / size << std::endl;
 
+    // create new array and compare each value to average score
     char idAbove[size];
     for (int i = 0; i < size; i++)
     {
@@ -43,8 +48,15 @@ int main()
             idAbove[i] = '-';
         }
     }
+    std::cout << "List of Student IDs:       ";
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << id[i] << " ";
+    }
 
-    std::cout << "Student ID's above average: ";
+    // output difference between all student ids and ids above average
+    std::cout << std::endl
+              << "Student IDs above average: ";
     for (int i = 0; i < size; i++)
     {
         std::cout << idAbove[i] << " ";
@@ -53,5 +65,3 @@ int main()
 
     return 0;
 }
-
-void averageScore(StudentScores stdScores)
