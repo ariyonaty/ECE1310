@@ -2,7 +2,7 @@
     Ari Yonaty
     ECE 1310
     3.21.2019
-    Exercise 86: Student Scores Structure
+    Exercise 86: Student Scores Structure 
  */
 
 #include <iostream>
