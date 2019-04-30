@@ -16,6 +16,8 @@ void winner(int, int);
 int main()
 {
     // Variables
+    const char *card_suit[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    const char *card_rank[13] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
     int fullRanks[52] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
     int playerDeck[26], computerDeck[26];
     int playerWin = 0, computerWin = 0;
@@ -31,10 +33,21 @@ int main()
     }
 
     // Output the contents of player and computer hand
-    printHand(playerDeck, computerDeck);
+    // printHand(playerDeck, computerDeck);
 
     // commence game
-    game(playerWin, computerWin, playerDeck, computerDeck);
+    char start = 'n';
+    std::cout << "Ready for War?(y/n) ";
+    std::cin >> start;
+
+    if (start == 'y')
+    {
+        game(playerWin, computerWin, playerDeck, computerDeck);
+    }
+    else
+    {
+        std::cout << "Goodbye!" << std::endl;
+    }
 }
 
 void printHand(int player[], int computer[])
