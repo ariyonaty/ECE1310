@@ -1,0 +1,1 @@
+Average from fileIn.txt: 79.4
